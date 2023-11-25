@@ -71,7 +71,7 @@ TEMPLATES = [
 WSGI_APPLICATION = '_manicure.wsgi.application'
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
