@@ -26,6 +26,7 @@ MY_APPS = [
     'users',
     'clients',
     'admins',
+    'schedules',
 ]
 
 THIRD_PARTY_APP = [
