@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Schedule
 from users.models import User
-from users.serializers import UserSerializer
 from django.shortcuts import get_object_or_404
 
 
