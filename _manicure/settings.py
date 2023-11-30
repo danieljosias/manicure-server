@@ -25,6 +25,7 @@ DJANGO_APPS = [
 MY_APPS = [
     'users',
     'clients',
+    'admins',
 ]
 
 THIRD_PARTY_APP = [
