@@ -6,7 +6,6 @@ from django.shortcuts import get_object_or_404
 
 class ScheduleSerializer(serializers.ModelSerializer):
     user_id = serializers.UUIDField(write_only=True)
-
     class Meta:
         model = Schedule
         fields = ['id','user_id','name','cellphone','date','hour','service','price']

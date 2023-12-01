@@ -10,3 +10,5 @@ class Client(models.Model):
     observation = models.CharField(max_length=255)
     photo = models.CharField(max_length=255)
 
+    user = models.OneToOneField('users.User', on_delete= models.CASCADE)
+
