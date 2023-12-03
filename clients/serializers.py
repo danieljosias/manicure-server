@@ -1,23 +1,23 @@
 from rest_framework import serializers
-from .models import Client
-from users.models import User
-from django.shortcuts import get_object_or_404
+from .models import Clients
+from users.models import Users
 from users.serializers import UserSerializer
+from django.shortcuts import get_object_or_404
 
 
 class ClientSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     user_id = serializers.UUIDField(write_only=True)
     class Meta:
-        model = Client
+        model = Clients
         fields = ['id','name','address','cellphone','observation','photo','user','user_id']
         read_only_fields = ['id']
 
     def create(self, validated_data):
         user_id = validated_data.pop('user_id')
-        user_found = get_object_or_404(User, id = user_id)
+        user_found = get_object_or_404(Users, id = user_id)
         
-        client = Client.objects.create(**validated_data, user=user_found)
+        client = Clients.objects.create(**validated_data, user=user_found)
 
         return client
 

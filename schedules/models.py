@@ -2,7 +2,7 @@ from django.db import models
 import uuid
 
 
-class Schedule(models.Model):
+class Schedules(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     name = models.CharField(max_length=255)
     cellphone = models.CharField(max_length=255)
@@ -11,6 +11,6 @@ class Schedule(models.Model):
     service = models.CharField(max_length=255)
     price = models.CharField(max_length=255)
 
-    user = models.OneToOneField('users.User', on_delete = models.CASCADE)
+    user = models.ForeignKey('users.Users', on_delete= models.CASCADE, related_name= 'schedules')
 
 

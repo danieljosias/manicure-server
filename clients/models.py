@@ -1,8 +1,7 @@
 from django.db import models
 import uuid
-from users.models import User
 
-class Client(models.Model):
+class Clients(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
@@ -10,5 +9,5 @@ class Client(models.Model):
     observation = models.CharField(max_length=255)
     photo = models.CharField(max_length=255)
 
-    user = models.OneToOneField(User, on_delete= models.CASCADE)
+    user = models.ForeignKey('users.Users', on_delete= models.CASCADE, related_name= 'clients')
 
