@@ -10,7 +10,7 @@ class ClientSerializer(serializers.ModelSerializer):
     user_id = serializers.UUIDField(write_only=True)
     class Meta:
         model = Clients
-        fields = ['id','name','address','cellphone','observation','photo','user','user_id']
+        fields = ['id','name','address','cellphone','observation','user','user_id']
         read_only_fields = ['id']
 
     def create(self, validated_data):
