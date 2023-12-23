@@ -17,7 +17,7 @@ class ClientSerializer(serializers.ModelSerializer):
         user_id = validated_data.pop('user_id')
         user_found = get_object_or_404(Users, id = user_id)
         
-        client = Clients.objects.create(**validated_data, user=user_found)
+        client = Clients.objects.get_or_create(**validated_data, user=user_found)
 
         return client
 
@@ -25,7 +25,7 @@ class ClientSerializer(serializers.ModelSerializer):
         if validated_data:
             for key, value in validated_data.items():
                 setattr(instance, key, value)
-                instance.save()
+                instance.save(update_fields=['name'])
 
         super().update(instance, validated_data)
         return instance
