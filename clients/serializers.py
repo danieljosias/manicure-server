@@ -3,7 +3,8 @@ from .models import Clients
 from users.models import Users
 from users.serializers import UserSerializer
 from django.shortcuts import get_object_or_404
-
+from rest_framework.response import Response
+from rest_framework import status
 
 class ClientSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
@@ -11,21 +12,12 @@ class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clients
         fields = ['id','name','address','cellphone','observation','user','user_id']
-        read_only_fields = ['id']
+        read_only_fields = ['id']   
 
     def create(self, validated_data):
         user_id = validated_data.pop('user_id')
         user_found = get_object_or_404(Users, id = user_id)
         
-        client = Clients.objects.get_or_create(**validated_data, user=user_found)
+        client = Clients.objects.create(**validated_data, user=user_found)
 
         return client
-
-    def update(self, instance, validated_data):
-        if validated_data:
-            for key, value in validated_data.items():
-                setattr(instance, key, value)
-                instance.save(update_fields=['name'])
-
-        super().update(instance, validated_data)
-        return instance

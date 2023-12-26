@@ -22,11 +22,4 @@ class FinanceSerializer(serializers.ModelSerializer):
 
         return finance
 
-    def update(self, instance, validated_data):
-        if validated_data:
-            for key, value in validated_data.items():
-                setattr(instance, key, value)
-                instance.save()
-
-        super().update(instance, validated_data)
-        return instance
+   
