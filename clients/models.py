@@ -6,7 +6,7 @@ class Clients(models.Model):
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     cellphone = models.CharField(max_length=255)
-    observation = models.CharField(max_length=255)
+    observation = models.CharField(max_length=255, blank=True)
 
     user = models.ForeignKey('users.Users', on_delete= models.CASCADE, related_name= 'clients')
 
