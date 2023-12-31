@@ -13,7 +13,7 @@ class AdminSerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
 
     def create(self, validated_data):
-        user_data = validated_data.pop("user")
+        user_data = validated_data.pop('user')
         user = Users.objects.create_user(**user_data)
         validated_data["user"] = user
 
