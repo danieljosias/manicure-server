@@ -5,6 +5,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = False
 
+SECRET_KEY = 'suelen-manicure-2024'
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
