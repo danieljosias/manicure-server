@@ -3,9 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 DEBUG = False
-
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -107,6 +105,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / STATIC_URL
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
