@@ -1,17 +1,11 @@
 
 from pathlib import Path
 
-import os
-import dotenv
-dotenv.load_dotenv()
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -77,9 +71,9 @@ WSGI_APPLICATION = '_manicure.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'NAME': 'manicure_db',
+        'USER': 'manicure_db_user',
+        'PASSWORD': 'y2hDwTnjIvO4OMi5x6tUO59u0Sla6WXL',
         'HOST':'dpg-cmatjr5a73kc73bn80cg-a.oregon-postgres.render.com',
         'PORT': '5432',
     },
