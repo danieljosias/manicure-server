@@ -25,7 +25,6 @@ MY_APPS = [
 THIRD_PARTY_APP = [
     'rest_framework',
     'rest_framework.authtoken',
-    'drf_spectacular',
     'corsheaders',
 ]
 
