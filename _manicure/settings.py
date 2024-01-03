@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST':'monorail.proxy.rlwy.net',
-        'PORT': 42977,
+        'HOST':'dpg-cmatjr5a73kc73bn80cg-a.oregon-postgres.render.com',
+        'PORT': '5432',
     },
     'another_one': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -117,6 +117,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.Users'
-
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
